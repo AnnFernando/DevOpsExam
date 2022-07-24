@@ -1,2 +1,2 @@
-FROM nginx:alpine
-COPY . /usr/share/nginx/html
+FROM alpine
+RUN apk update && apk add wget curl
