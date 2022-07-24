@@ -1,3 +1,0 @@
-FROM base-image:d75d345
-ARG GIT_COMMIT=unknown
-PY . /usr/share/base-image/html
