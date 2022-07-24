@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-service
+  labels:
+    app: web-service
+spec:
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app: web-service
+      environment: production
+  template:
+    metadata:
+      labels:
+        app: web-service
+        environment: production
+    spec:
+      containers:
+      - name: web-service
+        image: rukshini123/web-service
+        ports:
+        - containerPort: 80
